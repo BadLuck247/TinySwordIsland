@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cr57uw4xl13ug"]
+
+[ext_resource type="Texture2D" uid="uid://cjidoprhqm1qh" path="res://rts_systems/rts_objects/components/selector/02.png" id="1_74ks8"]
+[ext_resource type="Script" uid="uid://obf6yhr6eee8" path="res://rts_systems/rts_objects/components/selector/main.gd" id="2_xpqo0"]
+
+[node name="Selector" type="Sprite2D" unique_id=585070068]
+texture_filter = 1
+texture = ExtResource("1_74ks8")
+script = ExtResource("2_xpqo0")

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cu4a0wk0kplyh"]
+
+[ext_resource type="Script" uid="uid://3gk71pbk2i2t" path="res://rts_systems/rts_camera/main.gd" id="1_r8bau"]
+
+[node name="RTS-camera" type="Node2D" unique_id=1111298650]
+script = ExtResource("1_r8bau")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1975054206]
+anchor_mode = 0

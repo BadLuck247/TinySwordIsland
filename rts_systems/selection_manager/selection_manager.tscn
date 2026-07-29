@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dm1yy8x6gx4nj"]
+
+[ext_resource type="Script" uid="uid://c78aa6m8q47eu" path="res://rts_systems/selection_manager/main.gd" id="1_346gp"]
+[ext_resource type="Texture2D" uid="uid://8cbtm73o76nh" path="res://rts_systems/selection_manager/ui_rts_dragbox_selections_01.png" id="2_346gp"]
+
+[node name="SelectionManager" type="Node" unique_id=1907171115]
+script = ExtResource("1_346gp")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1554611185]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_346gp")
+region_rect = Rect2(2, 175, 18, 18)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5

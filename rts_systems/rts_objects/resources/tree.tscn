@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://du8oiglor3kpg"]
+
+[ext_resource type="Texture2D" uid="uid://dkk0n73sr7351" path="res://asset/titleset/Tree.png" id="1_vyr4o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd7ob"]
+atlas = ExtResource("1_vyr4o")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cvri"]
+atlas = ExtResource("1_vyr4o")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n05kb"]
+atlas = ExtResource("1_vyr4o")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ajc8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd7ob")
+}],
+"loop": true,
+"name": &"chop_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cvri")
+}],
+"loop": true,
+"name": &"chop_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n05kb")
+}],
+"loop": true,
+"name": &"chopped",
+"speed": 5.0
+}]
+
+[node name="tree" type="CharacterBody2D" unique_id=1324069860]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2031330798]
+texture_filter = 1
+position = Vector2(0, -60)
+sprite_frames = SubResource("SpriteFrames_ajc8x")
+animation = &"chopped"

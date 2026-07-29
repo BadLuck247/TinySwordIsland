@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dtv6fap5eamy"]
+
+[ext_resource type="Texture2D" uid="uid://cer8bpvitfsye" path="res://rts_systems/rts_objects/units/pawn/Pawn_Blue.png" id="1_dvocd"]
+[ext_resource type="Script" uid="uid://cn6ymousuv13f" path="res://rts_systems/rts_objects/units/pawn/pawn.gd" id="1_oflss"]
+[ext_resource type="PackedScene" uid="uid://cr57uw4xl13ug" path="res://rts_systems/rts_objects/components/selector.tscn" id="2_xe1lk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy2gh"]
+atlas = ExtResource("1_dvocd")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2qyf"]
+atlas = ExtResource("1_dvocd")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6a3d"]
+atlas = ExtResource("1_dvocd")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo332"]
+atlas = ExtResource("1_dvocd")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3tcc"]
+atlas = ExtResource("1_dvocd")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_370kb"]
+atlas = ExtResource("1_dvocd")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d7ai"]
+atlas = ExtResource("1_dvocd")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bdoit"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy2gh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2qyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6a3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo332")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3tcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_370kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d7ai")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="pawn" type="CharacterBody2D" unique_id=1690223430]
+script = ExtResource("1_oflss")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1235245197]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_bdoit")
+animation = &"idle"
+frame = 1
+frame_progress = 0.53669435
+
+[node name="Selector" parent="." unique_id=585070068 instance=ExtResource("2_xe1lk")]

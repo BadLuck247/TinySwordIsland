@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dashwq6bv8l0q"]
+
+[ext_resource type="Script" uid="uid://bsoarok1uappo" path="res://script/main.gd" id="1_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://dwsx5p3kl64i4" path="res://scene/Projectile.tscn" id="2_0ha60"]
+[ext_resource type="PackedScene" uid="uid://dcb161x754vkh" path="res://scene/goblin.tscn" id="2_v0l8b"]
+[ext_resource type="PackedScene" uid="uid://blrgts4lj5ja2" path="res://scene/archer.tscn" id="3_wp4xf"]
+[ext_resource type="Script" uid="uid://dry3vf0nuyon4" path="res://script/select_node.gd" id="4_brvut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brvut"]
+
+[node name="main" type="Node2D" unique_id=1043916783]
+script = ExtResource("1_wp4xf")
+projectile_node = ExtResource("2_0ha60")
+
+[node name="SelectNode" type="Node2D" parent="." unique_id=772746945]
+position = Vector2(-1, 0)
+script = ExtResource("4_brvut")
+
+[node name="goblin" parent="." unique_id=362157288 instance=ExtResource("2_v0l8b")]
+position = Vector2(734, 399)
+
+[node name="goblin2" parent="." unique_id=1451545461 instance=ExtResource("2_v0l8b")]
+position = Vector2(682, 197)
+
+[node name="SelectArea" type="Area2D" parent="." unique_id=1126756325]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectArea" unique_id=1148519911]
+shape = SubResource("RectangleShape2D_brvut")
+
+[node name="archer" parent="." unique_id=1341760101 instance=ExtResource("3_wp4xf")]
+position = Vector2(258, 369)
+
+[node name="archer2" parent="." unique_id=1308440262 instance=ExtResource("3_wp4xf")]
+position = Vector2(192, 287)

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://kgofm4dgc0ao"]
+
+[ext_resource type="Script" uid="uid://05ifvc7m1sud" path="res://scene/main.gd" id="1_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://uugingwrosan" path="res://scene/map1.tscn" id="2_brvut"]
+[ext_resource type="PackedScene" uid="uid://cu4a0wk0kplyh" path="res://rts_systems/rts_camera/main.tscn" id="3_0ha60"]
+[ext_resource type="PackedScene" uid="uid://6d77pee5bcui" path="res://rts_systems/rts_player/main.tscn" id="4_brvut"]
+[ext_resource type="PackedScene" uid="uid://dm1yy8x6gx4nj" path="res://rts_systems/selection_manager/selection_manager.tscn" id="5_0ha60"]
+[ext_resource type="PackedScene" uid="uid://dtv6fap5eamy" path="res://rts_systems/rts_objects/units/pawn/pawn.tscn" id="6_4j5ol"]
+
+[node name="Main" type="Node" unique_id=967676651]
+script = ExtResource("1_wp4xf")
+
+[node name="World" type="Node2D" parent="." unique_id=710508506]
+metadata/_edit_lock_ = true
+
+[node name="Map" parent="World" unique_id=878782947 instance=ExtResource("2_brvut")]
+
+[node name="RtsCamera" parent="World" unique_id=1111298650 instance=ExtResource("3_0ha60")]
+
+[node name="RtsPlayer" parent="World" unique_id=566997728 instance=ExtResource("4_brvut")]
+
+[node name="SelectionManager" parent="World/RtsPlayer" unique_id=1907171115 instance=ExtResource("5_0ha60")]
+
+[node name="Units" type="Node" parent="World" unique_id=868773203]
+
+[node name="pawn" parent="World/Units" unique_id=1690223430 instance=ExtResource("6_4j5ol")]
+position = Vector2(647, 495)
+
+[node name="pawn2" parent="World/Units" unique_id=7690132 instance=ExtResource("6_4j5ol")]
+position = Vector2(746, 480)
+
+[node name="pawn3" parent="World/Units" unique_id=1746820206 instance=ExtResource("6_4j5ol")]
+position = Vector2(703, 500)
+
+[node name="UI" type="Control" parent="." unique_id=245290620]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://kgofm4dgc0ao"]
+
+[ext_resource type="Script" uid="uid://05ifvc7m1sud" path="res://scene/main.gd" id="1_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://uugingwrosan" path="res://rts_systems/rts_objects/components/map/map.tscn" id="2_4j5ol"]
+[ext_resource type="PackedScene" uid="uid://cu4a0wk0kplyh" path="res://rts_systems/rts_camera/main.tscn" id="3_0ha60"]
+[ext_resource type="PackedScene" uid="uid://6d77pee5bcui" path="res://rts_systems/rts_player/main.tscn" id="4_brvut"]
+[ext_resource type="PackedScene" uid="uid://dm1yy8x6gx4nj" path="res://rts_systems/selection_manager/selection_manager.tscn" id="5_0ha60"]
+[ext_resource type="PackedScene" uid="uid://dtv6fap5eamy" path="res://rts_systems/rts_objects/units/pawn/pawn.tscn" id="6_4j5ol"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4j5ol"]
+vertices = PackedVector2Array(394, 426, 458, 378, 1537.1719, 113.90625, 490, 470, 346, 570, 1552.8125, 970.9219, 101.86719, 960.0703, 234, 618, 310, 570, 454, 470, 330, 458, 358, 426, 294, 458, 358, 470, 358, 506, 346, 534, 310, 534, 250, 506, 250, 470, 422, 378, 394, 390, 234, 582, 266, 442, 294, 422, 266, 406, 326, 346, 182, 618, 91.11719, 101.09375, 182, 582, 490, 506, 330, 422, 358, 390, 454, 506, 394, 506, 458, 342, 410, 298, 410, 262, 422, 342, 374, 298, 362, 346, 362, 310, 374, 262, 394, 470, 230, 442, 214, 470, 214, 506, 230, 406, 326, 310)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(0, 3, 9, 10, 11), PackedInt32Array(12, 10, 13, 14, 15, 16, 17, 18), PackedInt32Array(19, 1, 0, 20), PackedInt32Array(16, 8, 7, 21, 17), PackedInt32Array(22, 23, 12, 18), PackedInt32Array(23, 22, 24, 25), PackedInt32Array(26, 7, 6), PackedInt32Array(26, 6, 27, 28), PackedInt32Array(29, 3, 2, 5), PackedInt32Array(11, 10, 30, 31), PackedInt32Array(29, 5, 4, 32), PackedInt32Array(32, 4, 33, 9), PackedInt32Array(33, 4, 15, 14), PackedInt32Array(2, 1, 34), PackedInt32Array(35, 36, 2, 34, 37), PackedInt32Array(38, 35, 37, 19, 20, 39, 40), PackedInt32Array(27, 2, 36, 41), PackedInt32Array(39, 20, 31, 25), PackedInt32Array(9, 33, 42), PackedInt32Array(10, 9, 42), PackedInt32Array(10, 42, 13), PackedInt32Array(43, 22, 18, 44), PackedInt32Array(45, 17, 21, 28), PackedInt32Array(45, 28, 27, 44), PackedInt32Array(43, 44, 27, 46), PackedInt32Array(25, 31, 30, 23), PackedInt32Array(25, 24, 46, 27, 47), PackedInt32Array(47, 27, 41, 38, 40)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(81, 91, 1547, 104, 1563, 981, 92, 970)])
+
+[node name="Main" type="Node" unique_id=967676651]
+script = ExtResource("1_wp4xf")
+
+[node name="World" type="Node2D" parent="." unique_id=710508506]
+metadata/_edit_lock_ = true
+
+[node name="RtsCamera" parent="World" unique_id=1111298650 instance=ExtResource("3_0ha60")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="World" unique_id=1222850893]
+navigation_polygon = SubResource("NavigationPolygon_4j5ol")
+
+[node name="Map" parent="World/NavigationRegion2D" unique_id=878782947 instance=ExtResource("2_4j5ol")]
+
+[node name="Units" type="Node" parent="World/NavigationRegion2D/Map" unique_id=868773203]
+
+[node name="pawn" parent="World/NavigationRegion2D/Map/Units" unique_id=1690223430 instance=ExtResource("6_4j5ol")]
+position = Vector2(647, 495)
+
+[node name="pawn2" parent="World/NavigationRegion2D/Map/Units" unique_id=7690132 instance=ExtResource("6_4j5ol")]
+position = Vector2(746, 480)
+
+[node name="pawn3" parent="World/NavigationRegion2D/Map/Units" unique_id=1746820206 instance=ExtResource("6_4j5ol")]
+position = Vector2(703, 500)
+
+[node name="Component" type="Node" parent="World" unique_id=359684585]
+
+[node name="RtsPlayer" parent="World" unique_id=566997728 instance=ExtResource("4_brvut")]
+
+[node name="SelectionManager" parent="World/RtsPlayer" unique_id=1907171115 instance=ExtResource("5_0ha60")]
+
+[node name="UI" type="Control" parent="." unique_id=245290620]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
