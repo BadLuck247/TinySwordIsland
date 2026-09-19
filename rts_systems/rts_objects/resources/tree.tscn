@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://du8oiglor3kpg"]
 
+[ext_resource type="Script" uid="uid://1tnpocvm58qk" path="res://rts_systems/rts_objects/resources/tree.gd" id="1_jrssl"]
 [ext_resource type="Texture2D" uid="uid://dkk0n73sr7351" path="res://asset/titleset/Tree.png" id="1_vyr4o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bd7ob"]
@@ -42,6 +43,7 @@ animations = [{
 }]
 
 [node name="tree" type="CharacterBody2D" unique_id=1324069860]
+script = ExtResource("1_jrssl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2031330798]
 texture_filter = 1

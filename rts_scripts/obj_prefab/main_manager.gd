@@ -2,11 +2,6 @@ extends RefCounted
 # meta default
 
 ## enums
-enum ACTION_LIST {
-	ACTION_MOVE,
-	ACTION_SELECTABLE,
-	ACTION_GATHER,
-}
 ## const
 ## public vars
 ## private vars
@@ -14,4 +9,6 @@ enum ACTION_LIST {
 # obj_ for node references
 ## built-in overide methods
 ## public methods
-## private methods
+static func prefab_fetch_key_value(from_object: Node, key: int) -> Variant:
+	return from_object.OBJ_PREFAB_DATA[key]
+## private methods	

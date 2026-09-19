@@ -19,15 +19,15 @@ func dragbox_select_objects(object_lists: Array, dragbox_rect: Rect2) -> void:
 	for object: CharacterBody2D in (object_lists as Array[CharacterBody2D]):
 		var position_in_2d: Vector2 = get_viewport().get_canvas_transform() * object.global_position
 		if dragbox_rect.has_point(position_in_2d):
-			selected_object(object)
+			select_obj(object)
 		else:
-			deselected_object(object)
+			deselect_obj(object)
 
 func get_dragbox_select_objects(object_lists: Array, dragbox_rect: Rect2) -> Array[CharacterBody2D]:
 	var selected_array: Array[CharacterBody2D] = []
 	for object: CharacterBody2D in (object_lists as Array[CharacterBody2D]):
 		if dragbox_rect.has_point(object.global_position):
-			selected_object(object)
+			select_obj(object)
 			selected_array.append(object)
 	return selected_array
 
@@ -40,11 +40,11 @@ func update_selection_rectangle(new_rect: Rect2) -> void:
 		
 func select_array(array: Array[CharacterBody2D]) -> void:
 	for object in array: 
-		selected_object(object)
+		select_obj(object)
 	
 func deselect_array(array: Array[CharacterBody2D]) -> void:
 	for object in array: 
-		deselected_object(object)
+		deselect_obj(object)
 		
 func select_object_by_sprite(object: CharacterBody2D, camera: Camera2D) -> bool:
 	var mouse_world_position := camera.get_global_mouse_position()
@@ -61,13 +61,15 @@ func dragbox_show() -> void:
 	
 func dragbox_hide() -> void:
 	obj_ui_dragbox.hide()
+
+func select_obj(object: Node) -> void:
+	Scripts.ACTIONS[Scripts.ACTION_IDS.ACTION_SELECTABLE].select_obj(object)
 	
-func selected_object(object: Node) -> void:
-	object.select_obj()
+func deselect_obj(object: Node) -> void:
+	Scripts.ACTIONS[Scripts.ACTION_IDS.ACTION_SELECTABLE].deselect_obj(object)
 	
-func deselected_object(object: Node) -> void:
-	object.deselect_obj()
+func toggle_select_obj(object: Node) -> void:
+	Scripts.ACTIONS[Scripts.ACTION_IDS.ACTION_SELECTABLE].toggle_select_obj(object)
 	
-func toggle_select_object(object: Node) -> void:
-	object.toggle_select_obj()
+
 ## private methods

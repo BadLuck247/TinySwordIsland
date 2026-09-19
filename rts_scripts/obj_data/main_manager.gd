@@ -3,7 +3,6 @@ extends RefCounted
 
 ## enums
 ## const
-const SCRIPT_OBJDATA_CONST = preload("res://rts_scripts/obj_data/constants.gd")
 ## public vars
 ## private vars
 ## onready vars
@@ -14,7 +13,7 @@ static func debug_data_dict(obj_caller: Node) -> void:
 	print("\n>>DEBUG_PRINT: 'obj_data' from Node'", obj_caller.name, "'")
 	var obj_data: Dictionary = get_data_dict(obj_caller)
 	for data in obj_data.keys():
-		print(SCRIPT_OBJDATA_CONST.DATA_LIST.keys()[data])
+		print(Scripts.OBJDATA.keys()[data])
 		
 static func get_data_dict(from_object: Node) -> Dictionary:
 	return from_object.obj_data

@@ -4,7 +4,8 @@ extends CharacterBody2D
 ## enums
 ## const
 # Aliases
-static var OBJ_PREFAB_DATA: Dictionary = Scripts.DATABASE.DATABASE_UNITS[Scripts.PREFAB_LIST.UNIT_WOKER]
+static var OBJ_PREFAB_DATA: Dictionary = Scripts.DATABASE.DATABASE_RESOURCES[
+	Scripts.PREFAB_LIST.RESOURCE_TREE]
 ## public vars
 var obj_data: Dictionary = {}
 ## private vars
@@ -12,13 +13,8 @@ var obj_data: Dictionary = {}
 ## built-in overide methods
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_start_up()
-	add_to_group("units")
-	
-func _physics_process(delta) -> void:
-	Scripts.STATE_MANAGER.execute_state(self, delta)
-	
-## private methods
-func _start_up() -> void:
 	Scripts.ACTION_MANAGER.initialize_action(self)
 	Scripts.PREFAB_INITIALIZER.initialize_prefab_on_object(self, OBJ_PREFAB_DATA)
+
+func _physics_process(delta) -> void:
+	Scripts.STATE_MANAGER.execute_state(self, delta)

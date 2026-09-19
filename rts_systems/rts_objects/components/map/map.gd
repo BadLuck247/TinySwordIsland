@@ -5,8 +5,7 @@ extends Node
 ## const
 
 # const SCRIPT_GROUND_TILE_LAYER: Script = preload("res://rts_systems/rts_objects/components/map/ground_tile_layer.gd")
-const SCRIPT_GROUND_TILE_LAYER = preload("..//map/ground_tile_layer.gd")
-const SCRIPT_TREE_TILE_LAYER = preload("..//map/tree_tile_layer.gd")
+
 ## public vars
 var current_hovered_tile := Vector2i(-1, -1)
 var selector_instance: Sprite2D
@@ -14,8 +13,6 @@ var tree_instance: CharacterBody2D
 ## private vars
 ## onready vars
 # obj_ for node references
-@onready var obj_ground_tile_layer: SCRIPT_GROUND_TILE_LAYER = $GroundTileLayer
-@onready var obj_tree_map_layer: SCRIPT_TREE_TILE_LAYER = $TreeMapLayer
 @onready var obj_rts_camera: Node2D = $"../../RtsCamera"
 ## export vars
 @export var selector: PackedScene
@@ -31,13 +28,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	update_object_selector()
 	
-## public methods
-func get_units() -> Dictionary:
-	return obj_ground_tile_layer.unit_on_tiles
-
-func get_trees() -> Array[Vector2i]:
-	return obj_tree_map_layer.trees
-	
+## public methods	
 func get_neighboors(cell_position: Vector2i) -> Array:
 	var radius = 1
 	# Check the 9 neighboring tiles
@@ -54,16 +45,16 @@ func get_neighboors(cell_position: Vector2i) -> Array:
 func update_object_selector() -> void:
 	if get_tree().get_nodes_in_group("selected-units").size() > 0:
 		var mouse_position: Vector2 = obj_rts_camera.get_global_mouse_position()
-		var mouse_cell: Vector2i = obj_tree_map_layer.get_tile_location(mouse_position)
-
-		# Only update when the tile changes
-		if mouse_cell != current_hovered_tile:
-			current_hovered_tile = mouse_cell
-
-			if get_trees().has(mouse_cell):
-				spawn_selector(mouse_cell)
-			else:
-				remove_selector()
+		#var mouse_cell: Vector2i = obj_tree_map_layer.get_tile_location(mouse_position)
+#
+		## Only update when the tile changes
+		#if mouse_cell != current_hovered_tile:
+			#current_hovered_tile = mouse_cell
+#
+			#if get_trees().has(mouse_cell):
+				#spawn_selector(mouse_cell)
+			#else:
+				#remove_selector()
 
 func spawn_selector(cell: Vector2i):
 	if selector_instance == null:
@@ -76,11 +67,11 @@ func spawn_selector(cell: Vector2i):
 		tree_instance.hide()
 		tree_instance.add_to_group("selected-object")
 
-	var tile_world_position = obj_tree_map_layer.map_to_local(cell)
-	var global_position = obj_tree_map_layer.to_global(tile_world_position)
-
-	selector_instance.global_position = global_position
-	tree_instance.global_position = global_position
+	#var tile_world_position = obj_tree_map_layer.map_to_local(cell)
+	#var global_position = obj_tree_map_layer.to_global(tile_world_position)
+#
+	#selector_instance.global_position = global_position
+	#tree_instance.global_position = global_position
 
 
 func remove_selector():

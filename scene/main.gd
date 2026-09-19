@@ -7,7 +7,7 @@ extends Node
 ## private vars
 ## onready vars
 ## built-in overide methods
-@onready var rts_camera: Node2D = $World/RtsCamera
+@onready var rts_camera: Node2D = $RtsWorld/RtsCamera
 
 
 # Called when the node enters the scene tree for the first time.
